@@ -86,7 +86,6 @@ public class Agenda {
         }
     }
 
-    
     // func listarContatos
     @Override
     public String toString() {
@@ -103,9 +102,27 @@ public class Agenda {
         return sb.toString();
     }
 
+    public void imprimir() {
+        System.out.print("[");
+        for (int i = 0; i < contatos.length; i++) {
+            System.out.print(contatos[i]);
+            if (i < contatos.length - 1) {
+                System.out.print(", ");
+            }
+        }
+        System.out.println("]");
+    }
+
     // func manipulacao em lote (inserir varios contatos de uma vez)
 
     // func busca por prefixo (ex: todos nomes que comecam com "Ana", usar método
     // startsWith da classe String)
-
+    public void buscarPorPrefixo(String prefixo) {
+        for (int i = 0; i < tamanho; i++) {
+            if (contatos[i].getNome().startsWith(prefixo)) {
+                System.out.println("Contato encontrado: " + contatos[i].toString());
+            }
+        }
+        System.out.println("Contato não encontrado.");
+    }
 }
